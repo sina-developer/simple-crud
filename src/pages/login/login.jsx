@@ -1,11 +1,18 @@
 import cn from 'classnames';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import LoginApi from '../apis/loginApi';
+import { UserContext } from '../../contexts/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 function Login(props) {
   let [username, setUsername] = useState('');
   let [username_has_error, setUsernameHasError] = useState(false);
   let [password, setPassword] = useState('');
   let [password_has_error, setPasswordHasError] = useState(false);
+
+  let { user, loginUser } = useContext(UserContext);
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     setUsernameHasError(false);
@@ -14,6 +21,19 @@ function Login(props) {
 
   const login = () => {
     if (!validate()) return;
+
+    new LoginApi(
+      { username, password },
+      (response) => {
+        const data = response.data;
+        // This part should be handling on back-end, but since i'm using mock api, checking this way
+        if (username == data.username && password == data.password) {
+          loginUser(data);
+          navigate('/');
+        }
+      },
+      (error) => {}
+    ).run();
   };
 
   const validate = () => {
