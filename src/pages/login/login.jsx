@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import LoginApi from '../apis/loginApi';
 import { UserContext } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { useLoading } from '../../contexts/LoadingContext';
 
 function Login(props) {
   let [username, setUsername] = useState('');
@@ -11,6 +12,7 @@ function Login(props) {
   let [password_has_error, setPasswordHasError] = useState(false);
 
   let { user, loginUser } = useContext(UserContext);
+  let { startLoading, stopLoading } = useLoading();
 
   let navigate = useNavigate();
 
@@ -19,20 +21,31 @@ function Login(props) {
     setPasswordHasError(false);
   }, [username, password]);
 
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user]);
+
   const login = () => {
     if (!validate()) return;
-
+    startLoading();
     new LoginApi(
       { username, password },
       (response) => {
+        stopLoading();
         const data = response.data;
         // This part should be handling on back-end, but since i'm using mock api, checking this way
         if (username == data.username && password == data.password) {
           loginUser(data);
-          navigate('/');
+        } else {
+          setUsernameHasError('Invalid username or password');
+          setPasswordHasError(' ');
         }
       },
-      (error) => {}
+      (error) => {
+        stopLoading();
+      }
     ).run();
   };
 
