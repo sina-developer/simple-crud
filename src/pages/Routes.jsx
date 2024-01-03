@@ -1,12 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import Home from './home/home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './login/login';
-import { UserContext } from '../contexts/UserContext';
 import GaurdedRoute from '../components/GaurdedRoute';
-import NewProduct from './new_product/new_product';
-import ShowProduct from './show_product/show_product';
-import EditProduct from './edit_item/edit_product';
+import NewProduct from './new_product';
+import ShowProduct from './show_product';
+import EditProduct from './edit_product';
 
 function AppRoutes(props) {
   return (

@@ -1,4 +1,4 @@
-// Save data to local storage
+
 function saveToLocalStorage(key, data) {
   try {
     const serializedData = JSON.stringify(data);
@@ -8,7 +8,6 @@ function saveToLocalStorage(key, data) {
   }
 }
 
-// Get data from local storage
 function getFromLocalStorage(key, defaultValue) {
   try {
     const serializedData = localStorage.getItem(key);
@@ -18,7 +17,6 @@ function getFromLocalStorage(key, defaultValue) {
   }
 }
 
-// Remove data from local storage
 function removeFromLocalStorage(key) {
   try {
     localStorage.removeItem(key);

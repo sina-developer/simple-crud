@@ -5,10 +5,8 @@ import {
   saveToLocalStorage,
 } from '../utils/localStorage';
 
-// Create the context
 const UserContext = createContext();
 
-// Create a context provider component
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [has_checked, setHasChecked] = useState(false);
