@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import React, { useContext, useEffect, useState } from 'react';
-import LoginApi from '../apis/loginApi';
+import LoginApi from '../../apis/loginApi';
 import { UserContext } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../../contexts/LoadingContext';

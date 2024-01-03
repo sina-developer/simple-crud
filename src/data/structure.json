@@ -1,0 +1,54 @@
+[
+  {
+    "title": "Overview",
+    "order": 1,
+    "type": "overview_section",
+    "grid_columns": 2,
+    "items": [
+      {
+        "title": "user's count",
+        "value": "25k"
+      },
+      {
+        "title": "products count",
+        "value": "10k"
+      },
+      {
+        "title": "orders count",
+        "value": "30k"
+      }
+    ]
+  },
+  {
+    "title": "Latest Comments",
+    "order": 2,
+    "type": "comment_section",
+    "grid_columns": 1,
+    "items": [
+      {
+        "id": 1,
+        "username": "John",
+        "date": "2022-08-02",
+        "comment": "Great product"
+      },
+      {
+        "id": 2,
+        "username": "Jane",
+        "date": "2022-05-04",
+        "comment": "Awesome product"
+      },
+      {
+        "id": 3,
+        "username": "Mark",
+        "date": "2022-03-16",
+        "comment": "Good product"
+      }
+    ]
+  },
+  {
+    "title": "Products",
+    "order": 3,
+    "grid_columns": 3,
+    "type": "product_section"
+  }
+]
