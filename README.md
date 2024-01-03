@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Simple CRUD 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+to run the application, follow the steps:
 
-## Available Scripts
+- Install dependencies :
 
-In the project directory, you can run:
+`npm install`
 
-### `npm start`
+**Note: Plase use latest Node and npm**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Run the application
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`npm run start`
 
-### `npm test`
+it will serve the application on : 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`https://localhost:3000`
 
-### `npm run build`
+- Run the e2e tests:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`npm run cypress:open`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Note: You have to run the application first, to run the tests**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Login credentials:
 
-### `npm run eject`
+`username : sina`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`password : 12345678`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- It is also hosted on **Vercel**, and you can access it over the internet using the link below:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[https://simple-crud-rosy.vercel.app/](https://simple-crud-rosy.vercel.app/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+The application is not connected to a specific backend; it only utilizes https://mockapi.io/ as a mock API server. All mock API data is randomly generated. You can find an example template of this data in this directory:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`cypress/fixtures/products.json`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+If there is any question, please contact me :
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[sina.developer76@gmail.com](mailto:sina.developer76@gmail.com)
