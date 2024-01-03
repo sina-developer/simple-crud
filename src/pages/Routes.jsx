@@ -10,6 +10,14 @@ function AppRoutes(props) {
     <BrowserRouter>
       <Routes>
         <Route
+          path='/:id'
+          element={
+            // <GaurdedRoute>
+            <ShowProduct />
+            // </GaurdedRoute>
+          }
+        />
+        <Route
           path='/'
           element={
             <GaurdedRoute>

@@ -15,7 +15,7 @@ class BaseApi {
 
   async run() {
     try {
-      let response = await axios[this.method](this.url);
+      let response = await axios[this.method](this.url, this.params);
       this.onSuccess(response);
     } catch (error) {
       this.onFailed(error);
