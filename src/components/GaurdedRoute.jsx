@@ -4,17 +4,14 @@ import { Navigate, Route } from 'react-router-dom';
 import Home from '../pages/home/home';
 
 function GaurdedRoute({ children }) {
-  let { user, initUser } = useContext(UserContext);
+  let { user, has_checked } = useContext(UserContext);
 
-  useEffect(() => {
-    initUser();
-  }, []);
-
-  if (!user) {
+  if (has_checked && !user) {
     return <Navigate to='/login' replace />;
+  } else if (user) {
+    return children;
   }
-
-  return children;
+  return null;
 }
 
 export default GaurdedRoute;

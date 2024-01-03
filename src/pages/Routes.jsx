@@ -16,7 +16,7 @@ function AppRoutes(props) {
           path='/new_product'
           element={
             <GaurdedRoute>
-            <NewProduct />
+              <NewProduct />
             </GaurdedRoute>
           }
         />
@@ -24,7 +24,7 @@ function AppRoutes(props) {
           path='/:id'
           element={
             <GaurdedRoute>
-            <ShowProduct />
+              <ShowProduct />
             </GaurdedRoute>
           }
         />
@@ -32,7 +32,7 @@ function AppRoutes(props) {
           path='/:id/edit'
           element={
             <GaurdedRoute>
-            <EditProduct />
+              <EditProduct />
             </GaurdedRoute>
           }
         />
@@ -40,7 +40,7 @@ function AppRoutes(props) {
           path='/'
           element={
             <GaurdedRoute>
-            <Home />
+              <Home />
             </GaurdedRoute>
           }
         />

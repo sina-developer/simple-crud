@@ -11,10 +11,15 @@ const UserContext = createContext();
 // Create a context provider component
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [has_checked, setHasChecked] = useState(false);
 
+  useEffect(() => {
+    initUser();
+  }, []);
   const initUser = () => {
     const _user = getFromLocalStorage('user');
     setUser(_user);
+    setHasChecked(true);
     return _user;
   };
   const loginUser = (userData) => {
@@ -28,7 +33,9 @@ const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, initUser, loginUser, logoutUser }}>
+    <UserContext.Provider
+      value={{ has_checked, user, initUser, loginUser, logoutUser }}
+    >
       {children}
     </UserContext.Provider>
   );
