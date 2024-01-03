@@ -88,4 +88,14 @@ describe('Home tests', () => {
     cy.wait('@productsAfteDeleteApi');
     cy.get(productsItemsElement).find('.ag-row').should('have.length', 17);
   });
+
+  it('should show no product', () => {
+    cy.intercept('GET', '**/api/v1/product', {
+      fixture: 'no-products.json',
+    }).as('noProductApi');
+    cy.wait('@noProductApi');
+    cy.get(productsItemsElement)
+      .find('.ag-overlay-no-rows-center')
+      .should('exist');
+  });
 });
