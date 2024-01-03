@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function GridOperations({ value, onView, onEdit, onDelete }) {
   return (
@@ -18,7 +19,10 @@ function GridOperations({ value, onView, onEdit, onDelete }) {
         }}
       >
         <div class='inline-flex items-center rounded-md shadow-sm'>
-          <button class='text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-200 rounded-l-lg font-medium px-4 py-2 inline-flex space-x-1 items-center'>
+          <Link
+            to={'/' + value + '/edit'}
+            class='text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-200 rounded-l-lg font-medium px-4 py-2 inline-flex space-x-1 items-center'
+          >
             <span>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -35,6 +39,7 @@ function GridOperations({ value, onView, onEdit, onDelete }) {
                 />
               </svg>
             </span>
+          </Link>
           <Link
             to={'/' + value}
             class='text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border-y border-slate-200 font-medium px-4 py-2 inline-flex space-x-1 items-center'

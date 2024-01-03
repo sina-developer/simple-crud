@@ -6,6 +6,7 @@ import { UserContext } from '../contexts/UserContext';
 import GaurdedRoute from '../components/GaurdedRoute';
 import NewProduct from './new_product/new_product';
 import ShowProduct from './show_product/show_product';
+import EditProduct from './edit_item/edit_product';
 
 function AppRoutes(props) {
   return (
@@ -28,11 +29,19 @@ function AppRoutes(props) {
           }
         />
         <Route
+          path='/:id/edit'
+          element={
+            // <GaurdedRoute>
+            <EditProduct />
+            // </GaurdedRoute>
+          }
+        />
+        <Route
           path='/'
           element={
-            <GaurdedRoute>
-              <Home />
-            </GaurdedRoute>
+            // <GaurdedRoute>
+            <Home />
+            // </GaurdedRoute>
           }
         />
         <Route path='/login' element={<Login />} />

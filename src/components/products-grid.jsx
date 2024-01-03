@@ -5,6 +5,8 @@ import 'ag-grid-community/styles/ag-grid.css'; // Core CSS
 import 'ag-grid-community/styles/ag-theme-quartz.css'; // Theme
 import { useLoading } from '../contexts/LoadingContext';
 import GetItemsApi from '../apis/getItemsApi';
+import DeleteItemApi from '../apis/deleteItemApi';
+import { Link } from 'react-router-dom';
 
 function ProductsGrid({ title }) {
   const [rowData, setRowData] = useState([]);
@@ -43,8 +45,8 @@ function ProductsGrid({ title }) {
 
   const [colDefs] = useState([
     { field: 'title' },
-    { field: 'price' },
     { field: 'description' },
+    { field: 'price', cellRenderer: (params) => `$${params.value}` },
     {
       field: 'id',
       headerName: 'Actions',
@@ -53,6 +55,7 @@ function ProductsGrid({ title }) {
       ),
     },
   ]);
+
   return (
     <div>
       <div className='flex pb-2'>
@@ -82,8 +85,8 @@ function ProductsGrid({ title }) {
           </span>
         </Link>
       </div>
-    <div className='ag-theme-quartz' style={{ height: 500 }}>
-      <AgGridReact rowData={rowData} columnDefs={colDefs} />
+      <div className='ag-theme-quartz' style={{ height: 500 }}>
+        <AgGridReact rowData={rowData} columnDefs={colDefs} />
       </div>
     </div>
   );
