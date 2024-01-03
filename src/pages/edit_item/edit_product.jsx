@@ -71,7 +71,7 @@ function EditProduct(props) {
       setTitleHasError('Please enter your title');
       errors++;
     }
-    if (!price.length) {
+    if (!(price + '').length) {
       setPriceHasError('Please enter your price');
       errors++;
     }
@@ -95,7 +95,8 @@ function EditProduct(props) {
             type='text'
             name='title'
             id='title'
-            defaultValue={title}
+            data-testid='title-input'
+            value={title}
             placeholder='Title'
             className={cn(
               'w-full rounded-md border  bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md',
@@ -103,7 +104,10 @@ function EditProduct(props) {
             )}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <p className='text-red-600 text-xs sm:text-sm mt-1'>
+          <p
+            className='text-red-600 text-xs sm:text-sm mt-1'
+            data-testid='title-error'
+          >
             {title_has_error}
           </p>
         </div>
@@ -118,7 +122,8 @@ function EditProduct(props) {
             type='number'
             name='price'
             id='price'
-            defaultValue={price}
+            data-testid='price-input'
+            value={price}
             placeholder='100'
             className={cn(
               'w-full rounded-md border  bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md',
@@ -126,7 +131,10 @@ function EditProduct(props) {
             )}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <p className='text-red-600 text-xs sm:text-sm mt-1'>
+          <p
+            className='text-red-600 text-xs sm:text-sm mt-1'
+            data-testid='price-error'
+          >
             {price_has_error}
           </p>
         </div>
@@ -141,7 +149,8 @@ function EditProduct(props) {
             rows='4'
             name='description'
             id='description'
-            defaultValue={description}
+            data-testid='description-input'
+            value={description}
             placeholder='Type your description'
             className={cn(
               'w-full rounded-md border  bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md',
@@ -151,7 +160,10 @@ function EditProduct(props) {
             )}
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
-          <p className='text-red-600 text-xs sm:text-sm mt-1'>
+          <p
+            className='text-red-600 text-xs sm:text-sm mt-1'
+            data-testid='description-error'
+          >
             {description_has_error}
           </p>
         </div>
@@ -159,14 +171,16 @@ function EditProduct(props) {
           <button
             type='button'
             onClick={() => {
-              navigate("/");
+              navigate('/');
             }}
+            data-testid='goback-btn'
             className='hover:shadow-form rounded-md bg-red-500 py-3 px-8 text-base font-semibold text-white outline-none'
           >
             Go Back
           </button>
           <button
             type='button'
+            data-testid='save-btn'
             onClick={update_item}
             className='hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none'
           >
