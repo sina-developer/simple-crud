@@ -26,13 +26,31 @@ function ProductsGrid({ title }) {
     ).run();
   };
 
+  const deleteItem = (id) => {
+    startLoading();
+    new DeleteItemApi(
+      id,
+      (response) => {
+        stopLoading();
+        loadItems();
+      },
+      (error) => {
+        stopLoading();
+        console.log(error);
+      }
+    ).run();
+  };
+
   const [colDefs] = useState([
     { field: 'title' },
     { field: 'price' },
     { field: 'description' },
     {
-      field: 'operations',
-      cellRenderer: ({ value }) => <GridOperations value={value} />,
+      field: 'id',
+      headerName: 'Actions',
+      cellRenderer: ({ value }) => (
+        <GridOperations value={value} onDelete={deleteItem} />
+      ),
     },
   ]);
   return (
