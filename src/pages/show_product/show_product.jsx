@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useLoading } from '../../contexts/LoadingContext';
 import GetItemApi from '../../apis/getItemApi';
 import { useErrorHandler } from '../../contexts/ErrorHandlerContext';
+import Layout from '../../components/layout';
 
 function ShowProduct(props) {
   let { id } = useParams();
@@ -36,7 +37,7 @@ function ShowProduct(props) {
   };
 
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center bg-gray-100'>
+    <Layout>
       <div className='w-full max-w-4xl'>
         <div className='mb-5'>
           <label
@@ -101,7 +102,7 @@ function ShowProduct(props) {
           </button>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

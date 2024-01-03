@@ -47,9 +47,13 @@ function ProductsGrid({ title }) {
   };
 
   const [colDefs] = useState([
-    { field: 'title' },
-    { field: 'description' },
-    { field: 'price', cellRenderer: (params) => `$${params.value}` },
+    { field: 'title', filter: true },
+    { field: 'description', filter: true },
+    {
+      field: 'price',
+      filter: 'agNumberColumnFilter',
+      cellRenderer: (params) => `$${params.value}`,
+    },
     {
       field: 'id',
       headerName: 'Actions',

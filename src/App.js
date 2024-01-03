@@ -7,6 +7,7 @@ import LoadingScreen from './components/loading-screen';
 import ErrorScreen from './components/error-screen';
 
 function App() {
+  // I've used mock api for testing purposes
   axios.defaults.baseURL =
     'https://6594937f1493b011606aa56f.mockapi.io/api/v1/';
   return (

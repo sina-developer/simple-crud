@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import structure from '../../data/structure.json';
 import SectionLoader from '../../components/section-loader';
+import Layout from '../../components/layout';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -16,7 +17,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Home() {
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center bg-gray-100'>
+    <Layout>
       <div className='w-full max-w-4xl'>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
@@ -30,6 +31,6 @@ export default function Home() {
           </Grid>
         </Box>
       </div>
-    </div>
+    </Layout>
   );
 }

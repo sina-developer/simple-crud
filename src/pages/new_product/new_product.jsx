@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import AddItemApi from '../../apis/addItemApi';
 import { useLoading } from '../../contexts/LoadingContext';
 import { useErrorHandler } from '../../contexts/ErrorHandlerContext';
+import Layout from '../../components/layout';
 
 function NewProduct(props) {
   let [title, setTitle] = useState('');
@@ -56,7 +57,7 @@ function NewProduct(props) {
     return !errors;
   };
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center bg-gray-100'>
+    <Layout>
       <div className='w-full max-w-4xl'>
         <div className='mb-5'>
           <label
@@ -145,7 +146,7 @@ function NewProduct(props) {
           </button>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

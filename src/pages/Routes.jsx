@@ -15,33 +15,33 @@ function AppRoutes(props) {
         <Route
           path='/new_product'
           element={
-            // <GaurdedRoute>
+            <GaurdedRoute>
             <NewProduct />
-            // </GaurdedRoute>
+            </GaurdedRoute>
           }
         />
         <Route
           path='/:id'
           element={
-            // <GaurdedRoute>
+            <GaurdedRoute>
             <ShowProduct />
-            // </GaurdedRoute>
+            </GaurdedRoute>
           }
         />
         <Route
           path='/:id/edit'
           element={
-            // <GaurdedRoute>
+            <GaurdedRoute>
             <EditProduct />
-            // </GaurdedRoute>
+            </GaurdedRoute>
           }
         />
         <Route
           path='/'
           element={
-            // <GaurdedRoute>
+            <GaurdedRoute>
             <Home />
-            // </GaurdedRoute>
+            </GaurdedRoute>
           }
         />
         <Route path='/login' element={<Login />} />
