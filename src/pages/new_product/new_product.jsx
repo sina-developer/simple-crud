@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AddItemApi from '../../apis/addItemApi';
 import { useLoading } from '../../contexts/LoadingContext';
+import { useErrorHandler } from '../../contexts/ErrorHandlerContext';
 
 function NewProduct(props) {
   let [title, setTitle] = useState('');
@@ -14,6 +15,7 @@ function NewProduct(props) {
 
   let navigate = useNavigate();
   let { startLoading, stopLoading } = useLoading();
+  let { handleError } = useErrorHandler();
 
   useEffect(() => {
     setTitleHasError('');
@@ -32,6 +34,7 @@ function NewProduct(props) {
       },
       (error) => {
         stopLoading();
+        handleError('Something went wrong', '/');
       }
     ).run();
   };

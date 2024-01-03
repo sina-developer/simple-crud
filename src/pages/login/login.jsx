@@ -4,6 +4,7 @@ import LoginApi from '../../apis/loginApi';
 import { UserContext } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../../contexts/LoadingContext';
+import { useErrorHandler } from '../../contexts/ErrorHandlerContext';
 
 function Login(props) {
   let [username, setUsername] = useState('');
@@ -13,6 +14,7 @@ function Login(props) {
 
   let { user, loginUser } = useContext(UserContext);
   let { startLoading, stopLoading } = useLoading();
+  let { handleError } = useErrorHandler();
 
   let navigate = useNavigate();
 
@@ -45,6 +47,7 @@ function Login(props) {
       },
       (error) => {
         stopLoading();
+        handleError('Server not responding');
       }
     ).run();
   };

@@ -4,6 +4,7 @@ import AppRoutes from './pages/Routes';
 import axios from 'axios';
 import Contexts from './contexts/Contexts';
 import LoadingScreen from './components/loading-screen';
+import ErrorScreen from './components/error-screen';
 
 function App() {
   axios.defaults.baseURL =
@@ -12,6 +13,7 @@ function App() {
     <Contexts>
       <AppRoutes />
       <LoadingScreen />
+      <ErrorScreen />
     </Contexts>
   );
 }

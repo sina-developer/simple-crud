@@ -5,6 +5,7 @@ import AddItemApi from '../../apis/addItemApi';
 import { useLoading } from '../../contexts/LoadingContext';
 import GetItemApi from '../../apis/getItemApi';
 import UpdateItemApi from '../../apis/updateItemApi';
+import { useErrorHandler } from '../../contexts/ErrorHandlerContext';
 
 function EditProduct(props) {
   let { id } = useParams();
@@ -18,6 +19,7 @@ function EditProduct(props) {
 
   let navigate = useNavigate();
   let { startLoading, stopLoading } = useLoading();
+  let { handleError } = useErrorHandler();
 
   useEffect(() => {
     setTitleHasError('');
@@ -41,6 +43,7 @@ function EditProduct(props) {
       },
       (error) => {
         stopLoading();
+        handleError('This product does not exist', '/');
       }
     ).run();
   };
@@ -56,6 +59,7 @@ function EditProduct(props) {
       },
       (error) => {
         stopLoading();
+        handleError('Something went wrong');
       }
     ).run();
   };

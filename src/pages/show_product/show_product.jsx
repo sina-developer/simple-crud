@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useLoading } from '../../contexts/LoadingContext';
 import GetItemApi from '../../apis/getItemApi';
+import { useErrorHandler } from '../../contexts/ErrorHandlerContext';
 
 function ShowProduct(props) {
   let { id } = useParams();
@@ -11,11 +12,12 @@ function ShowProduct(props) {
 
   let navigate = useNavigate();
   let { startLoading, stopLoading } = useLoading();
+  let { handleError } = useErrorHandler();
 
   useEffect(() => {
     get_item();
   }, []);
-  
+
   let get_item = () => {
     startLoading();
     new GetItemApi(
@@ -28,6 +30,7 @@ function ShowProduct(props) {
       },
       (error) => {
         stopLoading();
+        handleError('This product does not exist', '/');
       }
     ).run();
   };

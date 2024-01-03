@@ -7,10 +7,12 @@ import { useLoading } from '../contexts/LoadingContext';
 import GetItemsApi from '../apis/getItemsApi';
 import DeleteItemApi from '../apis/deleteItemApi';
 import { Link } from 'react-router-dom';
+import { useErrorHandler } from '../contexts/ErrorHandlerContext';
 
 function ProductsGrid({ title }) {
   const [rowData, setRowData] = useState([]);
   const { startLoading, stopLoading } = useLoading();
+  const { handleError } = useErrorHandler();
 
   useEffect(() => {
     loadItems();
@@ -24,6 +26,7 @@ function ProductsGrid({ title }) {
       },
       (error) => {
         stopLoading();
+        handleError('Could not load items');
       }
     ).run();
   };
@@ -38,7 +41,7 @@ function ProductsGrid({ title }) {
       },
       (error) => {
         stopLoading();
-        console.log(error);
+        handleError('Could not delete item');
       }
     ).run();
   };
