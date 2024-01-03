@@ -99,6 +99,7 @@ function Login(props) {
                   id='username'
                   type='text'
                   name='username'
+                  data-testid="username-input"
                   className={cn(
                     'text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border  w-full py-2 focus:outline-none focus:border-blue-400',
                     username_has_error.length
@@ -109,7 +110,7 @@ function Login(props) {
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
-              <p className='text-red-600 text-xs sm:text-sm mt-1'>
+              <p className='text-red-600 text-xs sm:text-sm mt-1' data-testid="username-error">
                 {username_has_error}
               </p>
             </div>
@@ -141,6 +142,7 @@ function Login(props) {
                   id='password'
                   type='password'
                   name='password'
+                  data-testid="password-input"
                   className={cn(
                     'text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border  w-full py-2 focus:outline-none focus:border-blue-400',
                     password_has_error.length
@@ -151,7 +153,7 @@ function Login(props) {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <p className='text-red-600 text-xs sm:text-sm mt-1'>
+              <p className='text-red-600 text-xs sm:text-sm mt-1' data-testid="password-error">
                 {password_has_error}
               </p>
             </div>
@@ -161,6 +163,7 @@ function Login(props) {
                 type='button'
                 className='flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in'
                 onClick={login}
+                data-testid="login-button"
               >
                 <span className='mr-2 uppercase'>Login</span>
                 <span>

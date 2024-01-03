@@ -6,7 +6,7 @@ function ErrorScreen(props) {
   let { path, error, clearError } = useErrorHandler();
   return (
     error && (
-      <div className='absolute bg-white top-0 w-full h-full flex flex-col space-y-6 items-center justify-center min-h-screen z-10'>
+      <div data-testid="error" className='absolute bg-white top-0 w-full h-full flex flex-col space-y-6 items-center justify-center min-h-screen z-10'>
         <div className='flex items-center justify-center'>
           <img src={'/danger.svg'} />
 
