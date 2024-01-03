@@ -70,6 +70,7 @@ function NewProduct(props) {
             type='text'
             name='title'
             id='title'
+            data-testid='title-input'
             placeholder='Title'
             className={cn(
               'w-full rounded-md border  bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md',
@@ -77,7 +78,7 @@ function NewProduct(props) {
             )}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <p className='text-red-600 text-xs sm:text-sm mt-1'>
+          <p className='text-red-600 text-xs sm:text-sm mt-1' data-testid="title-error">
             {title_has_error}
           </p>
         </div>
@@ -92,6 +93,7 @@ function NewProduct(props) {
             type='number'
             name='price'
             id='price'
+            data-testid='price-input'
             placeholder='100'
             className={cn(
               'w-full rounded-md border  bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md',
@@ -99,7 +101,7 @@ function NewProduct(props) {
             )}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <p className='text-red-600 text-xs sm:text-sm mt-1'>
+          <p className='text-red-600 text-xs sm:text-sm mt-1' data-testid="price-error">
             {price_has_error}
           </p>
         </div>
@@ -114,6 +116,7 @@ function NewProduct(props) {
             rows='4'
             name='description'
             id='description'
+            data-testid='description-input'
             placeholder='Type your description'
             className={cn(
               'w-full rounded-md border  bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md',
@@ -123,15 +126,16 @@ function NewProduct(props) {
             )}
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
-          <p className='text-red-600 text-xs sm:text-sm mt-1'>
+          <p className='text-red-600 text-xs sm:text-sm mt-1' data-testid="description-error">
             {description_has_error}
           </p>
         </div>
         <div className='flex space-x-4'>
           <button
             type='button'
+            data-testid='goback-btn'
             onClick={() => {
-              navigate(-1);
+              navigate('/');
             }}
             className='hover:shadow-form rounded-md bg-red-500 py-3 px-8 text-base font-semibold text-white outline-none'
           >
@@ -139,6 +143,7 @@ function NewProduct(props) {
           </button>
           <button
             type='button'
+            data-testid='save-btn'
             onClick={add_item}
             className='hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none'
           >

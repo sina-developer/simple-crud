@@ -159,7 +159,7 @@ function EditProduct(props) {
           <button
             type='button'
             onClick={() => {
-              navigate(-1);
+              navigate("/");
             }}
             className='hover:shadow-form rounded-md bg-red-500 py-3 px-8 text-base font-semibold text-white outline-none'
           >
