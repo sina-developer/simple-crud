@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Home() {
   return (
     <Layout>
-      <div className='w-full max-w-4xl'>
+      <div className='w-full max-w-4xl' data-testid="home-container">
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             {structure.map((section) => {

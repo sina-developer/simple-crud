@@ -21,6 +21,7 @@ function GridOperations({ value, onView, onEdit, onDelete }) {
         <div class='inline-flex items-center rounded-md shadow-sm'>
           <Link
             to={'/' + value + '/edit'}
+            data-testid="edit-btn"
             class='text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-200 rounded-l-lg font-medium px-4 py-2 inline-flex space-x-1 items-center'
           >
             <span>
@@ -42,6 +43,7 @@ function GridOperations({ value, onView, onEdit, onDelete }) {
           </Link>
           <Link
             to={'/' + value}
+            data-testid='view-btn'
             class='text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border-y border-slate-200 font-medium px-4 py-2 inline-flex space-x-1 items-center'
           >
             <span>
@@ -71,6 +73,7 @@ function GridOperations({ value, onView, onEdit, onDelete }) {
             onClick={() => {
               onDelete(value);
             }}
+            data-testid="delete-btn"
           >
             <span>
               <svg

@@ -16,6 +16,7 @@ function Header(props) {
         <nav class='flex items-center justify-center text-base md:ml-auto'></nav>
         <div class='items-center h-full pl-6 ml-6 border-gray-200'>
           <p
+            data-testid='logout-btn'
             onClick={logoutUser}
             class='mr-5 cursor-pointer  text-red-400 font-medium hover:text-gray-900'
           >

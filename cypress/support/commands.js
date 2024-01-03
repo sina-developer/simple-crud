@@ -23,3 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', () => {
+  cy.fixture('user-login.json').then((user) => {
+    window.localStorage.setItem('user', JSON.stringify(user));
+  });
+});

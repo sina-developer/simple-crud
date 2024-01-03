@@ -64,13 +64,14 @@ function ProductsGrid({ title }) {
   ]);
 
   return (
-    <div>
+    <div data-testid='products-list'>
       <div className='flex pb-2'>
         <h5 class='mb-2 mr-auto block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased'>
           {title}
         </h5>
         <Link
           to={'/new_product'}
+          data-testid='new-product-btn'
           class='text-slate-800 hover:text-blue-600 text-sm bg-white hover:bg-slate-100 border border-slate-200 rounded-lg font-medium px-2  inline-flex space-x-1 items-center'
         >
           <span>
@@ -92,7 +93,11 @@ function ProductsGrid({ title }) {
           </span>
         </Link>
       </div>
-      <div className='ag-theme-quartz' style={{ height: 500 }}>
+      <div
+        data-testid='products-items'
+        className='ag-theme-quartz'
+        style={{ height: 500 }}
+      >
         <AgGridReact rowData={rowData} columnDefs={colDefs} />
       </div>
     </div>
